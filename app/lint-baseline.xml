@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.6.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.6.0)" variant="all" version="8.6.0">
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+        errorLine1="        targetSdk = 34"
+        errorLine2="        ~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="15"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.16.0"
+        errorLine1="    implementation(&quot;androidx.core:core-ktx:1.12.0&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="46"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.6.2 is available: 2.9.0"
+        errorLine1="    implementation(&quot;androidx.lifecycle:lifecycle-runtime-ktx:2.6.2&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="47"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.10.1"
+        errorLine1="    implementation(&quot;androidx.activity:activity-compose:1.8.2&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="48"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui than 1.5.4 is available: 1.8.1"
+        errorLine1="    implementation(&quot;androidx.compose.ui:ui:1.5.4&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="49"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.material3:material3 than 1.1.2 is available: 1.3.2"
+        errorLine1="    implementation(&quot;androidx.compose.material3:material3:1.1.2&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="50"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui-tooling-preview than 1.5.4 is available: 1.8.1"
+        errorLine1="    implementation(&quot;androidx.compose.ui:ui-tooling-preview:1.5.4&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="51"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui-tooling than 1.5.4 is available: 1.8.1"
+        errorLine1="    debugImplementation(&quot;androidx.compose.ui:ui-tooling:1.5.4&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="52"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.android.material:material than 1.9.0 is available: 1.12.0"
+        errorLine1="    implementation(&quot;com.google.android.material:material:1.9.0&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="55"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.room:room-runtime than 2.7.0-beta01 is available: 2.7.1"
+        errorLine1="    implementation(&quot;androidx.room:room-runtime:2.7.0-beta01&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="62"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.room:room-ktx than 2.7.0-beta01 is available: 2.7.1"
+        errorLine1="    implementation(&quot;androidx.room:room-ktx:2.7.0-beta01&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="63"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.room:room-compiler than 2.7.0-beta01 is available: 2.7.1"
+        errorLine1="    ksp(&quot;androidx.room:room-compiler:2.7.0-beta01&quot;)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="64"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-compose than 2.7.6 is available: 2.9.0"
+        errorLine1="    implementation(&quot;androidx.navigation:navigation-compose:2.7.6&quot;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="72"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.createOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  protected override fun createOpenDelegate(): RoomOpenDelegate {"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="36"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  protected override fun createOpenDelegate(): RoomOpenDelegate {"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="36"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1,"
+        errorLine2="                       ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="37"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1,"
+        errorLine2="                                          ^">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="37"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1,"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="37"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        &quot;f15095449168895375f3dcf7eade7e0a&quot;, &quot;42d5c59e373990955658bf6847603db7&quot;) {"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="38"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        &quot;f15095449168895375f3dcf7eade7e0a&quot;, &quot;42d5c59e373990955658bf6847603db7&quot;) {"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="38"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        &quot;f15095449168895375f3dcf7eade7e0a&quot;, &quot;42d5c59e373990955658bf6847603db7&quot;) {"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="38"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        &quot;f15095449168895375f3dcf7eade7e0a&quot;, &quot;42d5c59e373990955658bf6847603db7&quot;) {"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="38"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.createAllTables can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun createAllTables(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="39"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.dropAllTables can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun dropAllTables(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="45"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.onCreate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun onCreate(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="49"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.onOpen can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun onOpen(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="52"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.internalInitInvalidationTracker can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        internalInitInvalidationTracker(connection)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="53"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.onPreMigrate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun onPreMigrate(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="56"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="DBUtil__DBUtilKt.dropFtsSyncTriggers can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        dropFtsSyncTriggers(connection)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="57"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.onPostMigrate can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun onPostMigrate(connection: SQLiteConnection) {"
+        errorLine2="                          ~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="60"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomOpenDelegate.onValidateSchema can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      public override fun onValidateSchema(connection: SQLiteConnection):"
+        errorLine2="                          ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="63"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ValidationResult can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="          RoomOpenDelegate.ValidationResult {"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="64"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _columnsCheckins: MutableMap&lt;String, TableInfo.Column> = mutableMapOf()"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="65"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;id&quot;, TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, true, 1, null,"
+        errorLine2="                                             ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="66"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;id&quot;, TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, true, 1, null,"
+        errorLine2="                                                    ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="66"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;id&quot;, TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, true, 1, null,"
+        errorLine2="                                                          ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="66"
+            column="59"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;id&quot;, TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, true, 1, null,"
+        errorLine2="                                                                              ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="66"
+            column="79"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.CREATED_FROM_ENTITY can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="            TableInfo.CREATED_FROM_ENTITY))"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="67"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;mood&quot;, TableInfo.Column(&quot;mood&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                               ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="68"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;mood&quot;, TableInfo.Column(&quot;mood&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                      ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="68"
+            column="55"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;mood&quot;, TableInfo.Column(&quot;mood&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                              ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="68"
+            column="63"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;mood&quot;, TableInfo.Column(&quot;mood&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                                               ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="68"
+            column="80"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.CREATED_FROM_ENTITY can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="            TableInfo.CREATED_FROM_ENTITY))"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="69"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;journal&quot;, TableInfo.Column(&quot;journal&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                  ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="70"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;journal&quot;, TableInfo.Column(&quot;journal&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                         ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="70"
+            column="58"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;journal&quot;, TableInfo.Column(&quot;journal&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                                    ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="70"
+            column="69"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;journal&quot;, TableInfo.Column(&quot;journal&quot;, &quot;TEXT&quot;, true, 0, null,"
+        errorLine2="                                                                                     ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="70"
+            column="86"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.CREATED_FROM_ENTITY can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="            TableInfo.CREATED_FROM_ENTITY))"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="71"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;timestamp&quot;, TableInfo.Column(&quot;timestamp&quot;, &quot;INTEGER&quot;, true, 0, null,"
+        errorLine2="                                                    ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="72"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;timestamp&quot;, TableInfo.Column(&quot;timestamp&quot;, &quot;INTEGER&quot;, true, 0, null,"
+        errorLine2="                                                           ~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="72"
+            column="60"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;timestamp&quot;, TableInfo.Column(&quot;timestamp&quot;, &quot;INTEGER&quot;, true, 0, null,"
+        errorLine2="                                                                        ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="72"
+            column="73"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Column can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        _columnsCheckins.put(&quot;timestamp&quot;, TableInfo.Column(&quot;timestamp&quot;, &quot;INTEGER&quot;, true, 0, null,"
+        errorLine2="                                                                                            ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="72"
+            column="93"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.CREATED_FROM_ENTITY can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="            TableInfo.CREATED_FROM_ENTITY))"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="73"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ForeignKey can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _foreignKeysCheckins: MutableSet&lt;TableInfo.ForeignKey> = mutableSetOf()"
+        errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="74"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Index can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _indicesCheckins: MutableSet&lt;TableInfo.Index> = mutableSetOf()"
+        errorLine2="                                         ~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="75"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _infoCheckins: TableInfo = TableInfo(&quot;checkins&quot;, _columnsCheckins, _foreignKeysCheckins,"
+        errorLine2="                           ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="76"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _infoCheckins: TableInfo = TableInfo(&quot;checkins&quot;, _columnsCheckins, _foreignKeysCheckins,"
+        errorLine2="                                       ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="76"
+            column="40"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _infoCheckins: TableInfo = TableInfo(&quot;checkins&quot;, _columnsCheckins, _foreignKeysCheckins,"
+        errorLine2="                                                 ~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="76"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _infoCheckins: TableInfo = TableInfo(&quot;checkins&quot;, _columnsCheckins, _foreignKeysCheckins,"
+        errorLine2="                                                             ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="76"
+            column="62"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _infoCheckins: TableInfo = TableInfo(&quot;checkins&quot;, _columnsCheckins, _foreignKeysCheckins,"
+        errorLine2="                                                                               ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="76"
+            column="80"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="            _indicesCheckins)"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="77"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Companion.read can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _existingCheckins: TableInfo = read(connection, &quot;checkins&quot;)"
+        errorLine2="                                           ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="78"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Companion.read can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _existingCheckins: TableInfo = read(connection, &quot;checkins&quot;)"
+        errorLine2="                                                ~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="78"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="Companion.read can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _existingCheckins: TableInfo = read(connection, &quot;checkins&quot;)"
+        errorLine2="                                                            ~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="78"
+            column="61"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _existingCheckins: TableInfo = read(connection, &quot;checkins&quot;)"
+        errorLine2="                               ~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="78"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.equals can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        if (!_infoCheckins.equals(_existingCheckins)) {"
+        errorLine2="                           ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="79"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="TableInfo.equals can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        if (!_infoCheckins.equals(_existingCheckins)) {"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="79"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ValidationResult can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="          return RoomOpenDelegate.ValidationResult(false, &quot;&quot;&quot;"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="80"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ValidationResult can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="          return RoomOpenDelegate.ValidationResult(false, &quot;&quot;&quot;"
+        errorLine2="                                                          ^">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="80"
+            column="59"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ValidationResult can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        return RoomOpenDelegate.ValidationResult(true, null)"
+        errorLine2="                                ~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="88"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="ValidationResult can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        return RoomOpenDelegate.ValidationResult(true, null)"
+        errorLine2="                                                       ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="88"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="InvalidationTracker can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    return InvalidationTracker(this, _shadowTablesMap, _viewTables, &quot;checkins&quot;)"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="97"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.performClear can only be called from within the same library group (referenced groupId=`androidx.room` from groupId=`ChatBro`)"
+        errorLine1="    super.performClear(false, &quot;checkins&quot;)"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="101"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.getRequiredTypeConverterClasses can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  protected override fun getRequiredTypeConverterClasses(): Map&lt;KClass&lt;*>, List&lt;KClass&lt;*>>> {"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="104"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.getRequiredAutoMigrationSpecClasses can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  public override fun getRequiredAutoMigrationSpecClasses(): Set&lt;KClass&lt;out AutoMigrationSpec>> {"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="110"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="RoomDatabase.createAutoMigrations can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      fun createAutoMigrations(autoMigrationSpecs: Map&lt;KClass&lt;out AutoMigrationSpec>, AutoMigrationSpec>):"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/db/ChatBroDatabase_Impl.kt"
+            line="116"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter can only be accessed from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  private val __insertAdapterOfCheckInEntity: EntityInsertAdapter&lt;CheckInEntity>"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="27"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    this.__insertAdapterOfCheckInEntity = object : EntityInsertAdapter&lt;CheckInEntity>() {"
+        errorLine2="                                          ^">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="30"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    this.__insertAdapterOfCheckInEntity = object : EntityInsertAdapter&lt;CheckInEntity>() {"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="30"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter.createQuery can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      protected override fun createQuery(): String ="
+        errorLine2="                             ~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="31"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter.bind can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="      protected override fun bind(statement: SQLiteStatement, entity: CheckInEntity) {"
+        errorLine2="                             ~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="34"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="DBUtil__DBUtil_androidKt.performSuspending can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="  public override suspend fun insertCheckIn(checkIn: CheckInEntity): Unit = performSuspending(__db,"
+        errorLine2="                                                                            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="43"
+            column="77"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter.insert can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    __insertAdapterOfCheckInEntity.insert(_connection, checkIn)"
+        errorLine2="                                   ~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="45"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter.insert can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    __insertAdapterOfCheckInEntity.insert(_connection, checkIn)"
+        errorLine2="                                          ~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="45"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="EntityInsertAdapter.insert can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    __insertAdapterOfCheckInEntity.insert(_connection, checkIn)"
+        errorLine2="                                                       ~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="45"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="DBUtil__DBUtil_androidKt.performSuspending can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="    return performSuspending(__db, true, false) { _connection ->"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="50"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="SQLiteStatementUtil__StatementUtilKt.getColumnIndexOrThrow can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _columnIndexOfId: Int = getColumnIndexOrThrow(_stmt, &quot;id&quot;)"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="53"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="SQLiteStatementUtil__StatementUtilKt.getColumnIndexOrThrow can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _columnIndexOfMood: Int = getColumnIndexOrThrow(_stmt, &quot;mood&quot;)"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="54"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="SQLiteStatementUtil__StatementUtilKt.getColumnIndexOrThrow can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _columnIndexOfJournal: Int = getColumnIndexOrThrow(_stmt, &quot;journal&quot;)"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="55"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        message="SQLiteStatementUtil__StatementUtilKt.getColumnIndexOrThrow can only be called from within the same library group prefix (referenced groupId=`androidx.room` with prefix androidx from groupId=`ChatBro`)"
+        errorLine1="        val _columnIndexOfTimestamp: Int = getColumnIndexOrThrow(_stmt, &quot;timestamp&quot;)"
+        errorLine2="                                           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build/generated/ksp/debug/kotlin/com/weekendware/chatbro/data/local/dao/CheckInDao_Impl.kt"
+            line="56"
+            column="44"/>
+    </issue>
+
+</issues>
