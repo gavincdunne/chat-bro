@@ -93,5 +93,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.8.1")
 
     // Compose test previews
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.8.1")
 }
