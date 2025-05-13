@@ -4,12 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.weekendware.chatbro.data.local.dao.CheckInDao
-import com.weekendware.chatbro.data.local.entity.CheckInEntity
+import com.weekendware.chatbro.data.local.entity.MoodEntity
 
-@Database(entities = [CheckInEntity::class], version = 1, exportSchema = false)
+@Database(entities = [MoodEntity::class], version = 1, exportSchema = false)
 abstract class ChatBroDatabase : RoomDatabase() {
-    abstract fun checkInDao(): CheckInDao
 
     companion object {
         fun getInstance(context: Context): ChatBroDatabase {
