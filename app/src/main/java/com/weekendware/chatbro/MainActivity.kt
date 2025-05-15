@@ -12,11 +12,12 @@ import androidx.navigation.compose.rememberNavController
 import com.weekendware.chatbro.ui.navigation.BottomNavBar
 import com.weekendware.chatbro.ui.navigation.ChatBroNavGraph
 import com.weekendware.chatbro.ui.theme.ChatBroTheme
+import com.weekendware.chatbro.util.security.SecureStorage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        
         enableEdgeToEdge()
         setContent {
             ChatBroTheme {

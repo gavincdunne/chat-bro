@@ -94,6 +94,14 @@ fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
         Column {
             moodHistory.forEach { entry ->
                 Text("• ${entry.mood} at ${Date(entry.timestamp)}")
+                entry.insight?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.Gray,
+                        modifier = Modifier.padding(start = 8.dp, top = 2.dp)
+                    )
+                }
             }
         }
     }
