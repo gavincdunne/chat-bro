@@ -28,13 +28,14 @@ import com.weekendware.chatbro.domain.model.MoodType
 import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.*
+import java.util.Date
 
 
 @Composable
 fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
     val currentMood by viewModel.currentMood.collectAsState()
     val moodOptions = MoodType.entries.toList()
-
+    val moodHistory by viewModel.moodHistory.collectAsState()
     var note by remember { mutableStateOf("") }
 
     Column(
@@ -84,6 +85,16 @@ fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
             enabled = currentMood != null
         ) {
             Text("Save Mood")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text("Mood History", style = MaterialTheme.typography.titleMedium)
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column {
+            moodHistory.forEach { entry ->
+                Text("• ${entry.mood} at ${Date(entry.timestamp)}")
+            }
         }
     }
 }
