@@ -1,5 +1,5 @@
 package com.weekendware.chatbro.domain.model
 
-enum class MoodType {
-    HAPPY, SAD, ANGRY, ANXIOUS, NEUTRAL
+enum class MoodType(val emoji: String) {
+    HAPPY("😄"), SAD("😢"), ANGRY("😠"), CALM("😌"), ANXIOUS("😰")
 }
