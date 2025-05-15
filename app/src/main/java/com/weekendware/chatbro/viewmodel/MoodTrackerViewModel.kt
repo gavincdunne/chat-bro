@@ -29,28 +29,27 @@ class MoodTrackerViewModel(
     }
 
     fun addMoodEntry(note: String? = null) {
-        _currentMood.value?.let { mood ->
-            viewModelScope.launch {
-                val moodName = mood.name
+        val moodType = currentMood.value ?: return
 
-                val insight = try {
-                    openAiService.getMoodInsight(moodName, note)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    "AI insight unavailable (rate limit hit)."
-                }
-
-                val entry = MoodEntity(
-                    mood = moodName,
-                    timestamp = System.currentTimeMillis(),
-                    insight = insight
-                )
-                repository.insertMood(entry)
-
-                println("AI Insight: $insight")
-
-                _currentMood.value = null
+        viewModelScope.launch {
+            val insight = try {
+                openAiService.getMoodInsight(moodType.name, note)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                "AI insight unavailable (rate limit hit)."
             }
+
+            val moodEntity = MoodEntity(
+                mood = moodType.name,
+                note = note,
+                insight = insight,
+                timestamp = System.currentTimeMillis()
+            )
+
+            repository.insertMood(moodEntity)
+
+            _currentMood.value = null
         }
     }
+
 }
