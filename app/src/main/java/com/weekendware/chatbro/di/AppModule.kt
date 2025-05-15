@@ -1,18 +1,34 @@
 package com.weekendware.chatbro.di
 
-import com.weekendware.chatbro.data.repository.CheckInRepository
-import com.weekendware.chatbro.domain.usecase.SaveCheckInUseCase
-import com.weekendware.chatbro.viewmodel.CheckInViewModel
+import androidx.room.Room
+import com.weekendware.chatbro.data.local.db.ChatBroDatabase
+import com.weekendware.chatbro.data.repository.MoodRepository
+import com.weekendware.chatbro.viewmodel.DashboardViewModel
+import com.weekendware.chatbro.viewmodel.JournalViewModel
+import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    // Provide Repository (replace with real impl if needed)
-    single { CheckInRepository() }
 
-    // Provide UseCase
-    single { SaveCheckInUseCase(get()) }
+    // Provide Room database
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            ChatBroDatabase::class.java,
+            "chatbro.db"
+        ).build()
+    }
+
+    // Provide DAO
+    single { get<ChatBroDatabase>().moodDao() }
+
+    // Provide Repository
+    single { MoodRepository(get()) }
 
     // Provide ViewModel
-    viewModel { CheckInViewModel(get()) }
+    viewModel { DashboardViewModel() }
+    viewModel { MoodTrackerViewModel(get()) }
+    viewModel { JournalViewModel() }
 }
