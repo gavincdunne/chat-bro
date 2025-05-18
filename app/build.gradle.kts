@@ -104,4 +104,5 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.8")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.8.1")
+    testImplementation(kotlin("test"))
 }
