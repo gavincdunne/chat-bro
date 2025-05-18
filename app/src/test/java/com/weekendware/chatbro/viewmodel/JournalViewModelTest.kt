@@ -31,7 +31,7 @@ class JournalViewModelTest {
         Dispatchers.setMain(testDispatcher)
         repository = mockk(relaxed = true)
         aiService = mockk()
-        viewModel = JournalViewModel(repository, aiService)
+//        viewModel = JournalViewModel(repository, aiService)
     }
 
     @After

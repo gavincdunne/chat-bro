@@ -17,12 +17,15 @@ import com.weekendware.chatbro.domain.model.MoodType
 import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel
 import formatPrettyTimestamp
 import org.koin.androidx.compose.koinViewModel
+import com.weekendware.chatbro.data.common.Result
+
 
 @Composable
 fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
     val currentMood by viewModel.currentMood.collectAsState()
     val moodOptions = MoodType.entries.toList()
     val moodHistory by viewModel.moodHistory.collectAsState()
+    val aiInsightState by viewModel.aiInsightState.collectAsState()
     var note by remember { mutableStateOf("") }
 
     Column(
@@ -68,9 +71,39 @@ fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
                 viewModel.addMoodEntry(note)
                 note = ""
             },
-            enabled = currentMood != null
+            enabled = currentMood != null && aiInsightState !is Result.Loading
         ) {
-            Text("Save Mood")
+            if (aiInsightState is Result.Loading) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(18.dp),
+                    strokeWidth = 2.dp,
+                    color = MaterialTheme.colorScheme.onPrimary
+                )
+            } else {
+                Text("Save Mood")
+            }
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        when (aiInsightState) {
+            is Result.Loading -> {
+                Text("Analyzing your mood...", style = MaterialTheme.typography.labelMedium)
+            }
+            is Result.Error -> {
+                Text(
+                    "Insight unavailable: ${(aiInsightState as Result.Error).message}",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
+            is Result.Success -> {
+                Text(
+                    "Insight: ${(aiInsightState as Result.Success).data}",
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
+            null -> {}
         }
 
         Spacer(modifier = Modifier.height(24.dp))

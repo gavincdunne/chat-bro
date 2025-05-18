@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.launch
+import com.weekendware.chatbro.data.common.Result
+
 
 
 class MoodTrackerViewModel(
@@ -24,6 +26,9 @@ class MoodTrackerViewModel(
     val moodHistory: StateFlow<List<MoodEntity>> = repository.getAllMoods()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    private val _aiInsightState = MutableStateFlow<Result<String>?>(null)
+    val aiInsightState: StateFlow<Result<String>?> = _aiInsightState
+
     fun selectMood(mood: MoodType) {
         _currentMood.value = mood
     }
@@ -32,11 +37,25 @@ class MoodTrackerViewModel(
         val moodType = currentMood.value ?: return
 
         viewModelScope.launch {
-            val insight = try {
-                openAiService.getMoodInsight(moodType.name, note)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                "AI insight unavailable (rate limit hit)."
+            _aiInsightState.value = Result.Loading
+
+            val insightResult = openAiService.getMoodInsight(moodType.name, note)
+
+            val insight = when (insightResult) {
+                is Result.Success -> {
+                    _aiInsightState.value = insightResult
+                    insightResult.data
+                }
+                is Result.Error -> {
+                    val message = "AI insight unavailable: ${insightResult.message}"
+                    insightResult.throwable?.printStackTrace()
+                    _aiInsightState.value = Result.Error(message, insightResult.throwable)
+                    message
+                }
+                is Result.Loading -> {
+                    _aiInsightState.value = Result.Loading
+                    "Still loading..."
+                }
             }
 
             val moodEntity = MoodEntity(
@@ -51,5 +70,4 @@ class MoodTrackerViewModel(
             _currentMood.value = null
         }
     }
-
 }

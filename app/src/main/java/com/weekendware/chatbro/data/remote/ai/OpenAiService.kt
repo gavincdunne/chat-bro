@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import com.weekendware.chatbro.data.common.Result
 
 data class Message(val role: String, val content: String)
 data class ChatRequest(val model: String, val messages: List<Message>)
@@ -40,14 +41,23 @@ class OpenAiService(apiKey: String) {
         api = retrofit.create(OpenAiApi::class.java)
     }
 
-    suspend fun getMoodInsight(mood: String, note: String?): String {
-        val prompt = buildPrompt(mood, note)
-        val request = ChatRequest(
-            model = "gpt-3.5-turbo",
-            messages = listOf(Message("user", prompt))
-        )
-        val response = api.chat(request)
-        return response.choices.firstOrNull()?.message?.content ?: "No insight available."
+    suspend fun getMoodInsight(mood: String, note: String?): Result<String> {
+        return try {
+            val prompt = buildPrompt(mood, note)
+            val request = ChatRequest(
+                model = "gpt-3.5-turbo",
+                messages = listOf(Message("user", prompt))
+            )
+            val response = api.chat(request)
+            val content = response.choices.firstOrNull()?.message?.content?.trim()
+            if (!content.isNullOrBlank()) {
+                Result.Success(content)
+            } else {
+                Result.Error("No insight returned by the model.")
+            }
+        } catch (e: Exception) {
+            Result.Error("Failed to get mood insight", e)
+        }
     }
 
     private fun buildPrompt(mood: String, note: String?): String {
