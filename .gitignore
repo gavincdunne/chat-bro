@@ -29,9 +29,6 @@ build/generated/
 /target/
 **/*.rs.bk
 
-# Cargo files
-Cargo.lock
-
 # Environment files
 .env
 
