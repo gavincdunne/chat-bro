@@ -1,5 +1,5 @@
-use axum::{Router, routing::get, response::IntoResponse, Json, http::StatusCode};
-use std::net::SocketAddr;
+use axum::{Router, routing::get, response::IntoResponse, http::StatusCode};
+use axum::extract::Json;use std::net::SocketAddr;
 use tokio::net::TcpListener;
 use dotenv::dotenv;
 use sqlx::sqlite::SqlitePoolOptions;
@@ -9,11 +9,19 @@ use std::env;
 use serde::Deserialize;
 use argon2::{Argon2, PasswordHasher};
 use argon2::password_hash::{SaltString};
+use argon2::password_hash::PasswordHash;
+use argon2::PasswordVerifier;
 use chrono::Utc;
 use uuid::Uuid;
 use rand::rngs::OsRng;
+use jsonwebtoken::{encode, EncodingKey, Header};
+use serde::Serialize;
 
-
+#[derive(Debug, Serialize)]
+struct Claims {
+    sub: String,        // subject = user ID
+    exp: usize,         // expiration as UTC timestamp (seconds)
+}
 
 #[derive(Clone)]
 struct AppState {
@@ -39,6 +47,7 @@ async fn main() {
     let app = Router::new()
         .route("/", get(root_handler))
         .route("/register", axum::routing::post(register_handler))
+        .route("/login", axum::routing::post(login_handler))
         .with_state(app_state);
 
     // Bind the listener using tokio
@@ -98,6 +107,65 @@ async fn register_handler(
         }
     }
 }
+
+
+#[derive(Deserialize)]
+struct LoginInput {
+    email: String,
+    password: String,
+}
+
+#[derive(Serialize)]
+struct LoginResponse {
+    token: String,
+}
+
+async fn login_handler(
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<LoginInput>,
+) -> Result<Json<LoginResponse>, (StatusCode, String)> {
+    // Find user
+    let user = sqlx::query!(
+        "SELECT id, password_hash FROM users WHERE email = ?",
+        payload.email,
+    )
+    .fetch_optional(&state.db)
+    .await
+    .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("DB error: {}", e)))?;
+
+    let user = match user {
+        Some(user) => user,
+        None => return Err((StatusCode::UNAUTHORIZED, "Invalid credentials".into())),
+    };
+
+    // Parse stored password hash
+    let parsed_hash = PasswordHash::new(&user.password_hash)
+        .map_err(|_| (StatusCode::UNAUTHORIZED, "Invalid credentials".into()))?;
+
+    // Verify password
+    if Argon2::default()
+        .verify_password(payload.password.as_bytes(), &parsed_hash)
+        .is_err()
+    {
+        return Err((StatusCode::UNAUTHORIZED, "Invalid credentials".into()));
+    }
+
+    // Create token
+    let expiration = Utc::now().timestamp() as usize + 60 * 60; // 1 hour
+    let claims = Claims {
+        sub: user.id.expect("user ID should never be null"),
+        exp: expiration,
+    };
+
+    let secret = env::var("JWT_SECRET")
+        .map_err(|_| (StatusCode::INTERNAL_SERVER_ERROR, "Missing JWT_SECRET".into()))?;
+
+    let token = encode(&Header::default(), &claims, &EncodingKey::from_secret(secret.as_bytes()))
+        .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("Token error: {}", e)))?;
+
+    Ok(Json(LoginResponse { token }))
+}
+
 
 #[derive(Deserialize)]
 struct RegisterInput {
