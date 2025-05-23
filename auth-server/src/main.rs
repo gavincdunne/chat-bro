@@ -1,9 +1,12 @@
 use axum::{Router, routing::get, response::IntoResponse};
 use std::net::SocketAddr;
 use tokio::net::TcpListener;
+use dotenv::dotenv;
+
 
 #[tokio::main]
 async fn main() {
+    dotenv().ok();
     let app = Router::new().route("/", get(root_handler));
 
     // Bind the listener using tokio
