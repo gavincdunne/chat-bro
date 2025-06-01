@@ -39,6 +39,8 @@ target/
 *.db-shm
 *.db-wal
 *.sqlite
+.sqlx/
+
 
 # IDEs
 .vscode/
