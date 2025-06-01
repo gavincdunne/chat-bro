@@ -27,6 +27,7 @@ build/generated/
 
 # Rust build
 /target/
+target/
 **/*.rs.bk
 
 # Environment files
