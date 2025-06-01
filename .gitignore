@@ -24,3 +24,20 @@ build/generated/
 .cxx/
 *.log
 *.keystore
+
+# Rust build
+/target/
+**/*.rs.bk
+
+# Environment files
+.env
+
+# SQLite database (local dev)
+*.db
+*.sqlite
+
+# IDEs
+.vscode/
+
+# OS files
+Thumbs.db
