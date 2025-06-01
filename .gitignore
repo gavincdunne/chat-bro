@@ -35,6 +35,8 @@ target/
 
 # SQLite database (local dev)
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 
 # IDEs
