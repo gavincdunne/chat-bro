@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.weekendware.chatbro.ui.DashboardScreen
-import com.weekendware.chatbro.ui.MoodTrackerScreen
+import com.weekendware.chatbro.ui.moodtracker.MoodTrackerScreen
 import com.weekendware.chatbro.ui.JournalScreen
 
 

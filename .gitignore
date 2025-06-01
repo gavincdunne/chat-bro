@@ -24,6 +24,7 @@ build/generated/
 .cxx/
 *.log
 *.keystore
+.kotlin/
 
 # Rust build
 /target/

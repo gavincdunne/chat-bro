@@ -1,53 +1,29 @@
 package com.weekendware.chatbro.data.remote.ai
 
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import com.weekendware.chatbro.data.remote.core.ApiResult
+import com.weekendware.chatbro.data.remote.model.ChatRequest
+import com.weekendware.chatbro.data.remote.model.Message
+import com.weekendware.chatbro.data.remote.core.ApiService
 
-data class Message(val role: String, val content: String)
-data class ChatRequest(val model: String, val messages: List<Message>)
-data class ChatResponse(val choices: List<Choice>)
-data class Choice(val message: Message)
 
-interface OpenAiApi {
-    @Headers("Content-Type: application/json")
-    @POST("chat/completions")
-    suspend fun chat(@Body request: ChatRequest): ChatResponse
-}
+class OpenAiService(apiKey: String) :
+    ApiService<OpenAiApi>(
+        baseUrl = "https://api.openai.com/v1/",
+        apiKey = apiKey,
+        apiClass = OpenAiApi::class.java
+    ) {
 
-class OpenAiService(apiKey: String) {
-    private val api: OpenAiApi
-
-    init {
-        val client = OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $apiKey")
-                    .build()
-                chain.proceed(newRequest)
-            }
-            .build()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.openai.com/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-
-        api = retrofit.create(OpenAiApi::class.java)
-    }
-
-    suspend fun getMoodInsight(mood: String, note: String?): String {
+    suspend fun getMoodInsight(mood: String, note: String?): ApiResult<String> {
         val prompt = buildPrompt(mood, note)
-        val request = ChatRequest(
-            model = "gpt-3.5-turbo",
-            messages = listOf(Message("user", prompt))
-        )
-        val response = api.chat(request)
-        return response.choices.firstOrNull()?.message?.content ?: "No insight available."
+        return safeApiCall {
+            val response = api.chat(
+                ChatRequest(
+                    model = "gpt-3.5-turbo",
+                    messages = listOf(Message("user", prompt))
+                )
+            )
+            response.choices.firstOrNull()?.message?.content ?: "No insight available."
+        }
     }
 
     private fun buildPrompt(mood: String, note: String?): String {
