@@ -6,11 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.weekendware.chatbro.domain.model.MoodType
-import com.weekendware.chatbro.ui.moodtracker.MoodHeaderSection
-import com.weekendware.chatbro.ui.moodtracker.MoodHistorySection
-import com.weekendware.chatbro.ui.moodtracker.MoodInputSection
-import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel
-import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel.MoodTrackerState.*
+import com.weekendware.chatbro.viewmodel.*
 import formatPrettyTimestamp
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
@@ -21,26 +17,25 @@ fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
     val moodHistory by viewModel.moodHistory.collectAsState()
     val moodOptions = MoodType.entries.toList()
 
-    val selected = state as? MoodSelected
+    val selected = state as? MoodTrackerState.MoodSelected
     val note = selected?.note.orEmpty()
     val selectedMood = selected?.mood
 
     val snackbarHostState = remember { SnackbarHostState() }
 
-    // Snackbar & state reset
     LaunchedEffect(state) {
         when (state) {
-            is Success -> {
-                val entry = (state as Success).newEntry
+            is MoodTrackerState.Success -> {
+                val entry = (state as MoodTrackerState.Success).newEntry
                 snackbarHostState.showSnackbar("Saved ${entry.mood} at ${formatPrettyTimestamp(entry.timestamp)}")
                 delay(1500)
-                viewModel.resetState()
+                viewModel.processIntent(MoodIntent.Reset)
             }
-            is Error -> {
-                val message = (state as Error).exception.message ?: "Something went wrong."
+            is MoodTrackerState.Error -> {
+                val message = (state as MoodTrackerState.Error).exception.message ?: "Something went wrong."
                 snackbarHostState.showSnackbar("Error: $message")
                 delay(1500)
-                viewModel.resetState()
+                viewModel.processIntent(MoodIntent.Reset)
             }
             else -> Unit
         }
@@ -56,24 +51,21 @@ fun MoodTrackerScreen(viewModel: MoodTrackerViewModel = koinViewModel()) {
             MoodHeaderSection(
                 moodOptions = moodOptions,
                 selectedMood = selectedMood,
-                onMoodSelected = viewModel::selectMood
+                onMoodSelected = { viewModel.processIntent(MoodIntent.SelectMood(it)) }
             )
 
             Spacer(Modifier.height(16.dp))
 
             MoodInputSection(
                 note = note,
-                onNoteChange = viewModel::updateNote,
-                onSave = viewModel::saveMood,
+                onNoteChange = { viewModel.processIntent(MoodIntent.UpdateNote(it)) },
+                onSave = { viewModel.processIntent(MoodIntent.SaveMood) },
                 isEnabled = selected != null
             )
 
             Spacer(Modifier.height(24.dp))
 
-            MoodHistorySection(
-                state = state,
-                moodHistory = moodHistory
-            )
+            MoodHistorySection(moodHistory = moodHistory)
         }
     }
 }
