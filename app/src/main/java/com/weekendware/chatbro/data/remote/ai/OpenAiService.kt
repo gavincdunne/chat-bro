@@ -6,8 +6,7 @@ import com.weekendware.chatbro.data.remote.model.Message
 import com.weekendware.chatbro.data.remote.core.ApiService
 
 
-class OpenAiService(apiKey: String) :
-    ApiService<OpenAiApi>(
+class OpenAiService(apiKey: String) : ApiService<OpenAiApi>(
         baseUrl = "https://api.openai.com/v1/",
         apiKey = apiKey,
         apiClass = OpenAiApi::class.java
