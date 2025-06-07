@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.weekendware.chatbro.ui.DashboardScreen
 import com.weekendware.chatbro.ui.moodtracker.MoodTrackerScreen
-import com.weekendware.chatbro.ui.JournalScreen
+import com.weekendware.chatbro.ui.journal.JournalScreen
 
 
 sealed class Screen(val route: String) {

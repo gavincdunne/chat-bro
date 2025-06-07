@@ -1,9 +1,12 @@
-package com.weekendware.chatbro.viewmodel
+package com.weekendware.chatbro.viewmodel.viewmodel
 
 import com.weekendware.chatbro.data.remote.ai.OpenAiService
 import com.weekendware.chatbro.data.remote.core.ApiResult
 import com.weekendware.chatbro.data.repository.MoodRepository
 import com.weekendware.chatbro.domain.model.MoodType
+import com.weekendware.chatbro.viewmodel.MoodIntent
+import com.weekendware.chatbro.viewmodel.MoodTrackerState
+import com.weekendware.chatbro.viewmodel.MoodTrackerViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -15,9 +18,7 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
@@ -49,8 +50,8 @@ class MoodTrackerViewModelTest {
         testScheduler.advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertTrue(state is MoodTrackerState.MoodSelected)
-        assertEquals(MoodType.HAPPY, (state as MoodTrackerState.MoodSelected).mood)
+        Assert.assertTrue(state is MoodTrackerState.MoodSelected)
+        Assert.assertEquals(MoodType.HAPPY, (state as MoodTrackerState.MoodSelected).mood)
     }
 
     @Test
@@ -77,7 +78,7 @@ class MoodTrackerViewModelTest {
         }
 
         val state = viewModel.state.value
-        assertTrue(state is MoodTrackerState.Success)
+        Assert.assertTrue(state is MoodTrackerState.Success)
     }
 
     @Test
@@ -86,7 +87,7 @@ class MoodTrackerViewModelTest {
         testScheduler.advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertTrue(state is MoodTrackerState.Idle)
+        Assert.assertTrue(state is MoodTrackerState.Idle)
     }
 
     @Test
@@ -96,8 +97,8 @@ class MoodTrackerViewModelTest {
         testScheduler.advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertTrue(state is MoodTrackerState.MoodSelected)
-        assertEquals("updated note", (state as MoodTrackerState.MoodSelected).note)
+        Assert.assertTrue(state is MoodTrackerState.MoodSelected)
+        Assert.assertEquals("updated note", (state as MoodTrackerState.MoodSelected).note)
     }
 
     @Test
@@ -106,6 +107,6 @@ class MoodTrackerViewModelTest {
         testScheduler.advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertFalse(state is MoodTrackerState.MoodSelected)
+        Assert.assertFalse(state is MoodTrackerState.MoodSelected)
     }
 }
