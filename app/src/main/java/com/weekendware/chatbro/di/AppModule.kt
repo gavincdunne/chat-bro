@@ -12,6 +12,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import com.weekendware.chatbro.BuildConfig
 import com.weekendware.chatbro.data.repository.JournalRepository
+import com.weekendware.chatbro.viewmodel.onboarding.LoginViewModel
 
 
 val appModule = module {
@@ -40,6 +41,7 @@ val appModule = module {
     }
 
     // Provide ViewModel
+    viewModel { LoginViewModel() }
     viewModel { DashboardViewModel() }
     viewModel { MoodTrackerViewModel(get(), get()) }
     viewModel { JournalViewModel(get(), get()) }

@@ -8,12 +8,15 @@ import androidx.room.TypeConverters
 import com.weekendware.chatbro.data.local.Converters
 import com.weekendware.chatbro.data.local.dao.JournalDao
 import com.weekendware.chatbro.data.local.dao.MoodDao
+import com.weekendware.chatbro.data.local.dao.UserDao
 import com.weekendware.chatbro.data.local.entity.JournalEntity
 import com.weekendware.chatbro.data.local.entity.MoodEntity
+import com.weekendware.chatbro.data.local.entity.UserEntity
 
 @TypeConverters(Converters::class)
-@Database(entities = [MoodEntity::class, JournalEntity::class], version = 1, exportSchema = false)
+@Database(entities = [UserEntity::class,MoodEntity::class, JournalEntity::class], version = 1, exportSchema = false)
 abstract class ChatBroDatabase : RoomDatabase() {
+    abstract fun userDao(): UserDao
     abstract fun moodDao(): MoodDao
     abstract fun journalDao(): JournalDao
 
